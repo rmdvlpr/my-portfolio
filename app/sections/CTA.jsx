@@ -91,6 +91,7 @@ const TooltipPreview = ({ activeLink }) => {
         alt={`${activeLink.label} preview`}
         width={320}
         height={240}
+        loading="lazy"
         className="rounded-md w-full h-auto"
       />
       <p className="mt-2 text-center font-bold text-sm">{activeLink.label}</p>
