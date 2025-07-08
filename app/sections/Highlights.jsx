@@ -17,7 +17,7 @@ const projects = [
     description:
       "A web platform for a smart locker system, allowing users to manage and interact with their locker rentals.",
     tech: ["React", "Node.js", "Styled Components"],
-    link: "https://qube-website.onrender.com/",
+    link: "https://www.qubesmartlockers.com/",
   },
   {
     src: wtp2,
