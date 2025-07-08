@@ -4,6 +4,7 @@ import Highlight from "./sections/Highlights";
 import Process from "./sections/Process";
 import CTA from "./sections/CTA";
 import Text from "./sections/Text";
+import DesignData from "./sections/DesignData";
 export default function Page() {
   return (
     <div className="main-container">
@@ -13,6 +14,7 @@ export default function Page() {
       <Highlight />
       <Process />
       <CTA />
+      <DesignData />
     </div>
   );
 }
