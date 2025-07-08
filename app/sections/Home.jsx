@@ -14,16 +14,16 @@ const Home = () => {
     () => {
       const tl = gsap.timeline();
 
-      //! Animate the top bar elements
+      // Animate the top bar elements
       tl.from(".top-bar-item", {
         y: -50,
         opacity: 0,
         duration: 1,
         ease: "power3.out",
-        stagger: 0.2, //! Animate each item with a 0.2s delay
+        stagger: 0.2,
       });
 
-      //! Animate the main text content, starting slightly after the top bar
+      // Animate the main text content
       tl.from(
         ".hero-text",
         {
@@ -34,9 +34,9 @@ const Home = () => {
           stagger: 0.2,
         },
         "-=0.8"
-      ); //! Overlap with the previous animation by 0.8s
+      );
 
-      //! Animate the bottom bar elements
+      // Animate the bottom bar elements
       tl.from(
         ".bottom-bar-item",
         {
@@ -47,17 +47,17 @@ const Home = () => {
           stagger: 0.2,
         },
         "<"
-      ); //! Start at the same time as the previous animation
+      );
     },
     { scope: container }
-  ); //! Scope the animations to the container ref
+  );
 
   return (
     <div
       ref={container}
       className="home-container h-screen p-6 md:p-12 lg:p-20 flex flex-col justify-between select-none overflow-hidden"
     >
-      {/* === TOP BAR === */}
+      {/* === TOP BAR (Unchanged) === */}
       <div className="flex justify-between items-center pb-5">
         <div className="flex gap-4">
           <a
@@ -86,9 +86,8 @@ const Home = () => {
         </div>
       </div>
 
-      {/* === CENTER CONTENT === */}
+      {/* === CENTER CONTENT (Unchanged) === */}
       <div className="flex flex-col justify-center items-center gap-1 text-center">
-        {/* We replace BlurText with a simple div for GSAP control */}
         <div className="hero-text">
           <h1 className="text-[53px] md:text-8xl lg:text-[105px] font-extrabold poppins">
             RAM PAREDES
@@ -107,23 +106,44 @@ const Home = () => {
         </div>
       </div>
 
-      {/* === BOTTOM BAR === */}
-      <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-4">
-        <div className="w-full max-w-[300px] py-3 border-b-2 flex flex-col items-center justify-center text-center bottom-bar-item">
-          <p className="font-extrabold text-md syne">BIRTHDAY</p>
-          <p className="font-extrabold text-xl lg:text-2xl syne">
-            JUNE 13, 1999
-          </p>
+      {/* === BOTTOM BAR (Refactored) === */}
+      {/* Using justify-center and a larger gap for controlled, spacious alignment */}
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-24">
+        {/* Item 1: Birthday */}
+        <div className="bottom-bar-item flex flex-col items-center justify-center text-center w-64">
+          {/* Refined typography and border-t for top border */}
+          <div className="w-full pt-4 border-t border-gray-300">
+            <p className="text-sm font-medium text-gray-500 tracking-widest">
+              BIRTHDAY
+            </p>
+            <p className="text-xl lg:text-2xl font-extrabold syne mt-1">
+              JUNE 13, 1999
+            </p>
+          </div>
         </div>
-        <div className="w-full max-w-[300px] py-3 border-b-2 flex flex-col items-center justify-center text-center bottom-bar-item">
-          <p className="font-extrabold text-md syne">TECH STACKS</p>
-          <p className="font-extrabold text-xl lg:text-2xl syne">
-            REACT, NEXTJS
-          </p>
+
+        {/* Item 2: Tech Stacks */}
+        <div className="bottom-bar-item flex flex-col items-center justify-center text-center w-64">
+          <div className="w-full pt-4 border-t border-gray-300">
+            <p className="text-sm font-medium text-gray-500 tracking-widest">
+              TECH STACKS
+            </p>
+            <p className="text-xl lg:text-2xl font-extrabold syne mt-1">
+              REACT, NEXTJS
+            </p>
+          </div>
         </div>
-        <div className="w-full max-w-[300px] py-3 border-b-2 flex flex-col items-center justify-center text-center bottom-bar-item">
-          <p className="font-extrabold text-md syne">LOCATION</p>
-          <p className="font-extrabold text-xl lg:text-2xl syne">IMUS CAVITE</p>
+
+        {/* Item 3: Location */}
+        <div className="bottom-bar-item flex flex-col items-center justify-center text-center w-64">
+          <div className="w-full pt-4 border-t border-gray-300">
+            <p className="text-sm font-medium text-gray-500 tracking-widest">
+              LOCATION
+            </p>
+            <p className="text-xl lg:text-2xl font-extrabold syne mt-1">
+              IMUS CAVITE
+            </p>
+          </div>
         </div>
       </div>
     </div>

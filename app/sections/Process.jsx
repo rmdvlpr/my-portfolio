@@ -127,8 +127,6 @@ const Process = () => {
         </div>
       </div>
 
-      {/* --- CSS STYLES FOR THE ACTIVE STATE --- */}
-      {/* This can be in your global CSS file or here in a style tag */}
       <style jsx>{`
         .process-step .poppins.font-black,
         .process-step .poppins.font-bold {
