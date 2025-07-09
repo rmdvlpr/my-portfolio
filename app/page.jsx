@@ -5,12 +5,14 @@ import Process from "./sections/Process";
 import CTA from "./sections/CTA";
 import Text from "./sections/Text";
 import DesignData from "./sections/DesignData";
+import Story from "./sections/Story";
 export default function Page() {
   return (
     <div className="main-container">
       <Home />
       <About />
       <Text />
+      {/* <Story />  //! Under construction HAHHAHAH */}
       <Highlight />
       <Process />
       <CTA />

@@ -14,21 +14,34 @@ import {
   Sparkles,
   Triangle,
 } from "lucide-react";
-// Make sure this path is correct for your project
 import NextJsIcon from "../components/NextJsIcon";
+import { BsBehance } from "react-icons/bs";
 
-// --- GSAP PLUGIN REGISTRATION ---
+// GSAP PLUGIN REGISTRATION
 gsap.registerPlugin(ScrollTrigger);
 
-// --- ACCURATE WEBSITE PALETTE DATA ---
+// DATA (Unchanged)
 const designData = {
   title: "Design & Palette",
   icon: <Palette size={24} />,
-  tool: {
-    name: "Figma",
-    description: "For initial mockups and design concepts.",
-    icon: <Figma size={20} />,
-  },
+  tools: [
+    {
+      name: "Figma",
+      description: "For initial mockups and wireframes.",
+      icon: <Figma size={20} />,
+    },
+    {
+      name: "Behance",
+      description: "For design concepts and ideas.",
+      icon: <BsBehance size={20} />,
+    },
+    {
+      name: "ToolFolio",
+      description: "For tools and resources",
+      icon: <Wind size={20} />,
+    },
+  ],
+
   palette: [
     {
       name: "Background",
@@ -43,7 +56,7 @@ const designData = {
     {
       name: "Secondary Text",
       hex: "#6B7280",
-      usage: "Body copy and descriptions (Tailwind Gray-500).",
+      usage: "Body copy and descriptions.",
     },
     {
       name: "Subtle Text",
@@ -53,17 +66,15 @@ const designData = {
     {
       name: "Border / Divider",
       hex: "#F3F4F6",
-      usage: "Separators and subtle lines (Tailwind Gray-100).",
+      usage: "Separators and subtle lines.",
     },
     {
       name: "Interactive Accent",
       hex: "#3B82F6",
-      usage: "Highlighting active elements (Tailwind Blue-500).",
+      usage: "Highlighting active elements.",
     },
   ],
 };
-
-// --- OTHER DATA (UNCHANGED) ---
 const toolsData = {
   title: "Development Tools",
   icon: <TerminalSquare size={24} />,
@@ -85,7 +96,7 @@ const toolsData = {
     },
     {
       name: "GitHub",
-      description: "For version control",
+      description: "For version control.",
       icon: <GitBranch size={20} />,
     },
     {
@@ -95,7 +106,6 @@ const toolsData = {
     },
   ],
 };
-
 const librariesData = {
   title: "Libraries & Animation",
   icon: <Library size={24} />,
@@ -113,19 +123,33 @@ const librariesData = {
   ],
 };
 
-// --- MAIN COMPONENT ---
+// A small, reusable component for the individual palette items
+const PaletteItem = ({ color }) => (
+  <div className="palette-item">
+    <div className="flex items-center gap-4">
+      <div
+        className="w-8 h-8 rounded-lg border border-gray-200 shadow-sm flex-shrink-0"
+        style={{ backgroundColor: color.hex }}
+      ></div>
+      <div>
+        <p className="font-bold text-black">{color.name}</p>
+        <p className="text-xs text-gray-500 font-mono uppercase">{color.hex}</p>
+      </div>
+    </div>
+    <p className="text-sm text-gray-500 mt-2 pl-12">{color.usage}</p>
+  </div>
+);
+
+// MAIN COMPONENT
 const Colophon = () => {
   const container = useRef(null);
 
   useGSAP(
     () => {
+      // Animation logic remains the same and will work with the new layout
       const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: container.current,
-          start: "top 80%",
-        },
+        scrollTrigger: { trigger: container.current, start: "top 80%" },
       });
-
       tl.from(".colophon-title", {
         y: 50,
         opacity: 0,
@@ -143,7 +167,6 @@ const Colophon = () => {
           },
           "-=0.6"
         )
-        // Updated to animate the new palette items
         .from(
           ".tech-item, .design-tool-item, .palette-item",
           {
@@ -176,51 +199,38 @@ const Colophon = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Design & Palette Column */}
-          <div className="category-card rounded-lg p-6">
+        {/* NEW Asymmetrical Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Column 1: Design & Palette (Spans 2 Rows) */}
+          <div className="category-card lg:row-span-2 rounded-lg p-6 border border-gray-100">
             <div className="flex items-center gap-3 mb-6">
               {designData.icon}
               <h3 className="text-2xl font-bold poppins">{designData.title}</h3>
             </div>
             <div className="space-y-4">
-              {/* Design Tool */}
-              <div className="design-tool-item flex items-center gap-4 p-3 rounded-md">
-                <div className="text-gray-600">{designData.tool.icon}</div>
-                <div>
-                  <p className="font-bold text-black">{designData.tool.name}</p>
-                  <p className="text-sm text-gray-500">
-                    {designData.tool.description}
-                  </p>
+              {/* Updated to map over multiple design tools */}
+              {designData.tools.map((item, index) => (
+                <div
+                  key={index}
+                  className="design-tool-item flex items-center gap-4 p-3 rounded-md"
+                >
+                  <div className="text-gray-600">{item.icon}</div>
+                  <div>
+                    <p className="font-bold text-black">{item.name}</p>
+                    <p className="text-sm text-gray-500">{item.description}</p>
+                  </div>
                 </div>
-              </div>
-              {/* Accurate Palette List */}
+              ))}
               <div className="border-t border-gray-100 pt-4 mt-4 space-y-3">
                 {designData.palette.map((color) => (
-                  <div key={color.hex} className="palette-item">
-                    <div className="flex items-center gap-4">
-                      <div
-                        className="w-8 h-8 rounded-lg border border-gray-200 shadow-sm flex-shrink-0"
-                        style={{ backgroundColor: color.hex }}
-                      ></div>
-                      <div>
-                        <p className="font-bold text-black">{color.name}</p>
-                        <p className="text-xs text-gray-500 font-mono uppercase">
-                          {color.hex}
-                        </p>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-500 mt-2 pl-12">
-                      {color.usage}
-                    </p>
-                  </div>
+                  <PaletteItem key={color.hex} color={color} />
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Development Tools Column */}
-          <div className="category-card rounded-lg p-6">
+          {/* Column 2, Row 1: Development Tools */}
+          <div className="category-card rounded-lg p-6 border border-gray-100">
             <div className="flex items-center gap-3 mb-6">
               {toolsData.icon}
               <h3 className="text-2xl font-bold poppins">{toolsData.title}</h3>
@@ -229,7 +239,7 @@ const Colophon = () => {
               {toolsData.items.map((item, index) => (
                 <div
                   key={index}
-                  className="tech-item flex items-center gap-4 p-3 rounded-md transition-colors hover:bg-gray-50"
+                  className="tech-item flex items-center gap-4 p-3 rounded-md"
                 >
                   <div className="text-gray-600">{item.icon}</div>
                   <div>
@@ -241,8 +251,8 @@ const Colophon = () => {
             </div>
           </div>
 
-          {/* Libraries & Animation Column */}
-          <div className="category-card rounded-lg p-6">
+          {/* Column 2, Row 2: Libraries & Animation */}
+          <div className="category-card rounded-lg p-6 border border-gray-100">
             <div className="flex items-center gap-3 mb-6">
               {librariesData.icon}
               <h3 className="text-2xl font-bold poppins">
@@ -253,7 +263,7 @@ const Colophon = () => {
               {librariesData.items.map((item, index) => (
                 <div
                   key={index}
-                  className="tech-item flex items-center gap-4 p-3 rounded-md transition-colors hover:bg-gray-50"
+                  className="tech-item flex items-center gap-4 p-3 rounded-md"
                 >
                   <div className="text-gray-600">{item.icon}</div>
                   <div>

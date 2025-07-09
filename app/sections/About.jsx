@@ -170,10 +170,11 @@ const About = () => {
           </InfoCard>
           <InfoCard title="Expertise">
             <p>
-              My expertise lies in building dynamic, maintainable applications
-              using the right tools for the job. I follow best practices like
-              Atomic Design to ensure that every component is both robust and
-              reusable.
+              My expertise is turning design mockups into fully functional
+              websites. I use modern AI tools to make this process much faster,
+              allowing me to build and launch websites with greater speed and
+              efficiency. This approach ensures that a designer's creative
+              vision is brought to life on the web quickly,
             </p>
           </InfoCard>
           <InfoCard title="Tech Stacks">
