@@ -6,13 +6,14 @@ import CTA from "./sections/CTA";
 import Text from "./sections/Text";
 import DesignData from "./sections/DesignData";
 import Story from "./sections/Story";
+import WhatIDo from "./sections/WhatIDo";
 export default function Page() {
   return (
-    <div className="main-container">
+    <div className="main-container select-none">
       <Home />
       <About />
       <Text />
-      {/* <Story />  //! Under construction HAHHAHAH */}
+      <WhatIDo />
       <Highlight />
       <Process />
       <CTA />

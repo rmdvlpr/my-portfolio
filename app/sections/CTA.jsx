@@ -157,7 +157,7 @@ const CTA = () => {
       <section
         id="contact"
         ref={container}
-        className="bg-white text-black py-24 px-4 sm:px-10 lg:px-20"
+        className="bg-white text-black py-24 px-4 sm:px-10 lg:px-20 ="
       >
         <div className="max-w-7xl mx-auto">
           <div className="divider-cta w-24 h-px bg-gray-200 mx-auto mb-20"></div>
