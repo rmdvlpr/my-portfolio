@@ -3,6 +3,8 @@ import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MdAnimation } from "react-icons/md";
+
 import {
   Palette,
   TerminalSquare,
@@ -114,6 +116,11 @@ const librariesData = {
       name: "GSAP",
       description: "The engine for all animations.",
       icon: <Sparkles size={20} />,
+    },
+    {
+      name: "Lenis",
+      description: "For Buttery Smooth Scrolling.",
+      icon: <MdAnimation size={20} />,
     },
     {
       name: "Lucide React",
