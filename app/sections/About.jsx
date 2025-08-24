@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const AnimatedText = ({ text, className }) => (
   <p className={className}>
     {text.split("").map((char, index) => (
-      <span key={index} className="animated-char inline-block">
+      <span key={index} className="animated-char text-start">
         {char === " " ? "\u00A0" : char}
       </span>
     ))}
@@ -125,15 +125,18 @@ const About = () => {
     <section
       id="about"
       ref={container}
-      className="bg-white text-black py-24 px-4 sm:px-10 lg:px-20 overflow-hidden"
+      className="bg-white text-black py-12 sm:py-24 px-4 lg:px-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         <SectionTitle primary="ABOUT" secondary="ME" />
         <div className="intro-paragraph max-w-4xl mx-auto mb-24 text-center">
-          <AnimatedText
-            text="I'm a passionate Front-End Developer who specializes in turning ideas into beautiful, intuitive digital products. With a strong foundation in modern web technologies, I focus on crafting responsive, scalable, and high-performing interfaces that make a difference."
-            className="poppins font-regular text-xl sm:text-2xl text-gray-800 leading-relaxed"
-          />
+          <p className="poppins font-regular text-lg leading-relaxed">
+            I'm a passionate Front-End Developer who specializes in turning
+            ideas into beautiful, intuitive digital products. With a strong
+            foundation in modern web technologies, I focus on crafting
+            responsive, scalable, and high-performing interfaces that make a
+            difference.
+          </p>
         </div>
 
         <div className="info-grid grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
@@ -166,7 +169,7 @@ const About = () => {
                 BEYOND CODE
               </p>
               <p className="text-xl font-medium text-black mt-1">
-                Contemporary Dancer
+                Contemporary Dancer, Drone Pilot, Cinematographer
               </p>
             </div>
           </Magnetic>
@@ -176,7 +179,7 @@ const About = () => {
                 HOBBY
               </p>
               <p className="text-xl font-medium text-black mt-1">
-                Part-time Hiking Coordinator
+                Hiking & Travel Coordinator
               </p>
             </div>
           </Magnetic>
