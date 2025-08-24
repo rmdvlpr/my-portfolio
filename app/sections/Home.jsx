@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { motion } from "framer-motion";
 import { BsInstagram } from "react-icons/bs";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { Github } from "lucide-react";
@@ -9,6 +10,16 @@ import Button from "../components/Button";
 
 const Home = () => {
   const container = useRef(null);
+
+  const scrollToPortfolio = () => {
+    const portfolioSection = document.getElementById("portfolio");
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   useGSAP(
     () => {
@@ -77,7 +88,7 @@ const Home = () => {
           </a>
         </div>
         <div className="top-bar-item">
-          <p className="syne font-extrabold hidden lg:block text-[14px] md:text-[18px] lg:text-2xl">
+          <p className="adamina font-extrabold hidden lg:block text-[14px] md:text-[18px] lg:text-2xl">
             Welcome!
           </p>
         </div>
@@ -89,17 +100,17 @@ const Home = () => {
       {/* === CENTER CONTENT (Unchanged) === */}
       <div className="flex flex-col justify-center items-center gap-1 text-center">
         <div className="hero-text">
-          <h1 className="text-[53px] md:text-8xl lg:text-[105px] font-extrabold poppins">
-            RAM PAREDES
-          </h1>
+          <div className="text-[53px] md:text-8xl lg:text-[105px] adamina relative">
+            R<span className="italic">a</span>m Paredes
+          </div>
         </div>
         <div className="hero-text">
-          <p className="poppins font-extrabold text-3xl md:text-5xl lg:text-6xl text-[#bfbfbf]">
+          <p className="syne font-medium text-3xl md:text-5xl lg:text-6xl text-[#bfbfbf]">
             FRONT END DEVELOPER
           </p>
         </div>
         <div className="hero-text">
-          <p className="poppins font-extrabold text-base md:text-lg lg:text-xl">
+          <p className="font-extrabold text-base md:text-lg lg:text-xl">
             Turning ideas into beautiful, intuitive products that make a
             difference.
           </p>
@@ -109,41 +120,89 @@ const Home = () => {
       {/* === BOTTOM BAR (Refactored) === */}
       {/* Using justify-center and a larger gap for controlled, spacious alignment */}
       <div className="flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-24">
-        {/* Item 1: Birthday */}
-        <div className="bottom-bar-item flex flex-col items-center justify-center text-center w-64">
-          {/* Refined typography and border-t for top border */}
-          <div className="w-full pt-4 border-t border-gray-300">
-            <p className="text-sm font-medium text-gray-500 tracking-widest">
-              BIRTHDAY
-            </p>
-            <p className="text-xl lg:text-2xl font-extrabold syne mt-1">
-              JUNE 13, 1999
-            </p>
-          </div>
-        </div>
+        <div className="syne font-extrabold text-[14px] md:text-[18px] lg:text-2xl relative">
+          <motion.div
+            className="relative overflow-hidden cursor-pointer"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.5, duration: 0.3 }}
+            onClick={scrollToPortfolio}
+          >
+            {/* Background text for proper spacing */}
+            <p className="opacity-0">View my work.</p>
 
-        {/* Item 2: Tech Stacks */}
-        <div className="bottom-bar-item flex flex-col items-center justify-center text-center w-64">
-          <div className="w-full pt-4 border-t border-gray-300">
-            <p className="text-sm font-medium text-gray-500 tracking-widest">
-              TECH STACKS
-            </p>
-            <p className="text-xl lg:text-2xl font-extrabold syne mt-1">
-              REACT, NEXTJS
-            </p>
-          </div>
-        </div>
+            {/* Animated text overlay */}
+            <div className="absolute inset-0 flex">
+              {[
+                "V",
+                "i",
+                "e",
+                "w",
+                " ",
+                "m",
+                "y",
+                " ",
+                "w",
+                "o",
+                "r",
+                "k",
+                ".",
+              ].map((char, index) => (
+                <motion.span
+                  key={index}
+                  className="inline-block"
+                  initial={{
+                    opacity: 0,
+                    pathLength: 0,
+                    filter: "blur(10px)",
+                    y: 10,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    pathLength: 1,
+                    filter: "blur(0px)",
+                    y: 0,
+                  }}
+                  transition={{
+                    delay: 2.8 + index * 0.08,
+                    duration: 0.6,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    opacity: { duration: 0.3 },
+                    filter: { duration: 0.4 },
+                    y: { duration: 0.4, ease: "backOut" },
+                  }}
+                  style={{
+                    textShadow: "0 0 8px currentColor",
+                  }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </div>
 
-        {/* Item 3: Location */}
-        <div className="bottom-bar-item flex flex-col items-center justify-center text-center w-64">
-          <div className="w-full pt-4 border-t border-gray-300">
-            <p className="text-sm font-medium text-gray-500 tracking-widest">
-              LOCATION
-            </p>
-            <p className="text-xl lg:text-2xl font-extrabold syne mt-1">
-              IMUS CAVITE
-            </p>
-          </div>
+            {/* SVG drawing effect overlay */}
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none"
+              viewBox="0 0 200 40"
+              style={{ transform: "scale(1.1)" }}
+            >
+              {/* Underline stroke */}
+              <motion.path
+                d="M 20 32 Q 60 28 100 30 Q 140 32 180 29"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 0.6 }}
+                transition={{
+                  delay: 3.8,
+                  duration: 1.2,
+                  ease: "easeInOut",
+                }}
+              />
+            </svg>
+          </motion.div>
         </div>
       </div>
     </div>
