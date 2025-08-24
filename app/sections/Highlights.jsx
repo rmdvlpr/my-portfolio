@@ -87,45 +87,87 @@ const Highlights = () => {
         stagger: 0.2,
       });
 
-      // --- 3D TILT INTERACTION ---
+      // --- SLIDING REVEAL INTERACTION ---
       const cards = gsap.utils.toArray(".project-card");
       cards.forEach((card) => {
+        const overlay = card.querySelector(".project-overlay");
         const image = card.querySelector("img");
+        const content = card.querySelector(".project-content");
+        const title = card.querySelector(".project-title");
+        const description = card.querySelector(".project-description");
+        const link = card.querySelector(".project-link");
 
-        card.addEventListener("mousemove", (e) => {
-          const { left, top, width, height } = card.getBoundingClientRect();
-          const x = e.clientX - left;
-          const y = e.clientY - top;
-          const rotateX = gsap.utils.mapRange(0, height, -15, 15, y);
-          const rotateY = gsap.utils.mapRange(0, width, 15, -15, x);
+        // Set initial states
+        gsap.set(overlay, { scaleX: 0, transformOrigin: "left center" });
+        gsap.set([title, description, link], { y: 30, opacity: 0 });
 
-          gsap.to(card, {
-            rotateX: rotateX,
-            rotateY: rotateY,
-            scale: 1.05,
-            duration: 0.7,
-            ease: "power1.out",
-          });
+        card.addEventListener("mouseenter", () => {
+          const tl = gsap.timeline();
 
-          // Parallax effect on the image
-          gsap.to(image, {
-            x: -rotateY * 0.5,
-            y: rotateX * 0.5,
-            duration: 1,
-            ease: "power1.out",
-          });
+          // Image zoom and darken
+          tl.to(image, {
+            scale: 1.1,
+            filter: "brightness(0.4)",
+            duration: 0.6,
+            ease: "power2.out",
+          })
+            // Overlay slide in
+            .to(
+              overlay,
+              {
+                scaleX: 1,
+                duration: 0.5,
+                ease: "power2.out",
+              },
+              0.1
+            )
+            // Content animate in with stagger
+            .to(
+              [title, description, link],
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.4,
+                ease: "power2.out",
+                stagger: 0.1,
+              },
+              0.3
+            );
         });
 
         card.addEventListener("mouseleave", () => {
-          gsap.to(card, {
-            rotateX: 0,
-            rotateY: 0,
-            scale: 1,
-            duration: 1,
-            ease: "elastic.out(1, 0.3)",
-          });
-          // Reset image parallax
-          gsap.to(image, { x: 0, y: 0, duration: 1, ease: "power1.out" });
+          const tl = gsap.timeline();
+
+          // Content animate out
+          tl.to([title, description, link], {
+            y: 30,
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.in",
+            stagger: 0.05,
+          })
+            // Overlay slide out
+            .to(
+              overlay,
+              {
+                scaleX: 0,
+                transformOrigin: "right center",
+                duration: 0.4,
+                ease: "power2.in",
+              },
+              0.1
+            )
+            // Image reset
+            .to(
+              image,
+              {
+                scale: 1,
+                filter: "brightness(1)",
+                duration: 0.5,
+                ease: "power2.out",
+              },
+              0.2
+            );
         });
       });
     },
@@ -145,39 +187,38 @@ const Highlights = () => {
           creating intuitive digital experiences.
         </p>
 
-        {/* Added perspective and transform-style for 3D effect */}
-        <div className="projects-grid grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20 perspective-[1000px]">
+        <div className="projects-grid grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
           {projects.map((item, index) => (
             <a
               key={index}
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              // Added project-card class and transform-style
-              className="project-card block transform-style-3d"
+              className="project-card block group cursor-pointer"
             >
-              <div className="relative overflow-hidden rounded-lg">
+              <div className="relative overflow-hidden rounded-xl shadow-lg">
                 <Image
                   src={item.src}
                   alt={item.title}
                   width={1920}
                   height={1080}
-                  className="w-full object-cover rounded-lg aspect-video border border-gray-100"
+                  className="w-full object-cover rounded-xl aspect-video transition-all duration-500"
                 />
-              </div>
-              <div className="mt-6">
-                <h3 className="text-2xl font-bold poppins text-black">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 mt-2 leading-relaxed">
-                  {item.description}
-                </p>
-                <div className="flex items-center mt-4 text-sm font-medium text-black">
-                  <span>View Project</span>
-                  <ArrowUpRight
-                    size={18}
-                    className="ml-1 transition-transform duration-200 ease-in-out"
-                  />
+
+                {/* Sliding Overlay */}
+                <div className="project-overlay absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-transparent rounded-xl flex items-center justify-center">
+                  <div className="project-content text-center text-white px-8">
+                    <h3 className="project-title text-3xl font-bold poppins mb-4">
+                      {item.title}
+                    </h3>
+                    <p className="project-description text-lg leading-relaxed mb-6 max-w-sm">
+                      {item.description}
+                    </p>
+                    <div className="project-link inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium border border-white/30 hover:bg-white/30 transition-colors">
+                      <span>View Project</span>
+                      <ArrowUpRight size={18} className="ml-2" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </a>
