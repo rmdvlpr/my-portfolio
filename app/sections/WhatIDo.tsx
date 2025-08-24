@@ -11,11 +11,14 @@ import {
   Bot,
   Users,
   Library,
+  Database,
+  Globe,
+  TestTube,
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// --- SKILLS DATA (Unchanged) ---
+// --- SKILLS DATA ---
 const skillsData = [
   {
     title: "Frontend Development",
@@ -30,14 +33,29 @@ const skillsData = [
     ],
   },
   {
+    title: "Backend Development",
+    icon: <Server size={24} className="text-black" />,
+    skills: ["Express.js", "Node.js", "API Integration"],
+  },
+  {
+    title: "Database",
+    icon: <Database size={24} className="text-black" />,
+    skills: ["MongoDB", "PostgreSQL"],
+  },
+  {
     title: "UI Libraries",
     icon: <Library size={24} className="text-black" />,
     skills: ["Shadcn UI", "React Bits", "Hero UI", "Material UI", "Lucide"],
   },
   {
     title: "State Management",
-    icon: <Server size={24} className="text-black" />,
+    icon: <Globe size={24} className="text-black" />,
     skills: ["Redux", "Zustand"],
+  },
+  {
+    title: "Testing & Tools",
+    icon: <TestTube size={24} className="text-black" />,
+    skills: ["Unit Testing", "Postman"],
   },
   {
     title: "Mobile Development",
