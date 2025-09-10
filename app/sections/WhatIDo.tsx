@@ -216,33 +216,42 @@ const WhatIDo = () => {
 
   useGSAP(
     () => {
-      // Animate the main title and paragraph
-      gsap.from([".services-title", ".services-intro"], {
-        scrollTrigger: { trigger: ".services-title", start: "top 80%" },
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top 80%",
+          end: "bottom center",
+          // Optional: you can add markers for debugging
+          // markers: true,
+        },
+      });
+
+      // 1. Instantly set the starting styles to prevent the flash
+      gsap.set([".services-title", ".services-intro", ".skill-row"], {
         opacity: 0,
         y: 50,
+      });
+
+      // 2. Animate the elements to their final state
+      tl.to([".services-title", ".services-intro"], {
+        opacity: 1,
+        y: 0,
         duration: 1,
         ease: "power3.out",
         stagger: 0.2,
-      });
-
-      // Animate each skill row
-      gsap.from(".skill-row", {
-        scrollTrigger: {
-          trigger: ".skills-list",
-          start: "top 80%",
+      }).to(
+        ".skill-row",
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          stagger: 0.15,
         },
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: "power2.out",
-        stagger: 0.15,
-      });
+        "<" // Start this animation at the same time as the previous one
+      );
 
-      // Animate skill tags on hover
-      gsap.set(".skill-tag", {
-        scale: 1,
-      });
+      // No need for a separate animation on hover, the scale is set via CSS
     },
     { scope: container }
   );
