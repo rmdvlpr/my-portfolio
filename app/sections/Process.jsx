@@ -28,7 +28,7 @@ const processSteps = [
     step: "02",
     title: "Core Development",
     description:
-      "I build responsive, type-safe interfaces using React & TypeScript while managing client-side state.",
+      "I build responsive, type-safe interfaces using ReactJs | NextJs & TypeScript while managing client-side state.",
   },
   {
     step: "03",

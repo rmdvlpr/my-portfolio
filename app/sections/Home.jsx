@@ -21,6 +21,29 @@ const Home = () => {
     }
   };
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    } else {
+      // Fallback: try to find the contact section after a short delay
+      setTimeout(() => {
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+          contactSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        } else {
+          console.warn("Contact section not found");
+        }
+      }, 100);
+    }
+  };
+
   useGSAP(
     () => {
       const tl = gsap.timeline();
@@ -93,7 +116,7 @@ const Home = () => {
           </p>
         </div>
         <div className="flex justify-end top-bar-item">
-          <Button label="BOOK A CALL" />
+          <Button label="BOOK A CALL" onClick={scrollToContact} />
         </div>
       </div>
 
