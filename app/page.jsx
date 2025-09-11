@@ -11,10 +11,11 @@ export default function Page() {
   return (
     <div className="main-container select-none">
       <Home />
-      <About />
-      <Text />
       <WhatIDo />
+      <Text />
+
       <Highlight />
+      <About />
       <Process />
       <CTA />
       <DesignData />

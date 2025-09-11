@@ -105,12 +105,12 @@ const skillsData = [
     title: "Frontend Development",
     icon: <Code size={24} className="text-black" />,
     skills: [
-      { name: "React js", rating: 5 },
-      { name: "Next.js", rating: 5 },
+      { name: "React js", rating: 4 },
+      { name: "Next.js", rating: 4 },
       { name: "TypeScript", rating: 4 },
       { name: "Tailwind CSS", rating: 5 },
-      { name: "Bootstrap", rating: 4 },
-      { name: "GSAP", rating: 4 },
+      { name: "Bootstrap", rating: 3 },
+      { name: "GSAP", rating: 3 },
     ],
     description:
       "Building responsive and interactive user interfaces with modern frameworks and libraries.",
@@ -119,9 +119,9 @@ const skillsData = [
     title: "Backend Development",
     icon: <Server size={24} className="text-black" />,
     skills: [
-      { name: "Express.js", rating: 4 },
-      { name: "Node.js", rating: 4 },
-      { name: "API Integration", rating: 5 },
+      { name: "Express.js", rating: 2 },
+      { name: "Node.js", rating: 2 },
+      { name: "API Integration", rating: 3.5 },
     ],
     description:
       "Creating robust server-side applications and RESTful APIs for scalable web solutions.",
@@ -130,8 +130,8 @@ const skillsData = [
     title: "Database",
     icon: <Database size={24} className="text-black" />,
     skills: [
-      { name: "MongoDB", rating: 4 },
-      { name: "PostgreSQL", rating: 3 },
+      { name: "MongoDB", rating: 2 },
+      { name: "PostgreSQL", rating: 2 },
     ],
     description:
       "Designing and managing both NoSQL and relational databases for optimal data storage.",
@@ -140,11 +140,11 @@ const skillsData = [
     title: "UI Libraries",
     icon: <Library size={24} className="text-black" />,
     skills: [
-      { name: "Shadcn UI", rating: 5 },
+      { name: "Shadcn UI", rating: 4 },
       { name: "React Bits", rating: 4 },
-      { name: "Hero UI", rating: 4 },
-      { name: "Material UI", rating: 4 },
-      { name: "Lucide", rating: 5 },
+      { name: "Hero UI", rating: 3 },
+      { name: "Material UI", rating: 3 },
+      { name: "Lucide", rating: 4 },
     ],
     description:
       "Leveraging component libraries to build consistent and beautiful user interfaces.",
@@ -153,7 +153,7 @@ const skillsData = [
     title: "State Management",
     icon: <Globe size={24} className="text-black" />,
     skills: [
-      { name: "Redux", rating: 4 },
+      { name: "Redux", rating: 3 },
       { name: "Zustand", rating: 4 },
     ],
     description:
@@ -164,7 +164,7 @@ const skillsData = [
     icon: <TestTube size={24} className="text-black" />,
     skills: [
       { name: "Unit Testing", rating: 3 },
-      { name: "Postman", rating: 5 },
+      { name: "Postman", rating: 3 },
     ],
     description:
       "Ensuring code quality and API reliability through comprehensive testing strategies.",
@@ -172,7 +172,7 @@ const skillsData = [
   {
     title: "Mobile Development",
     icon: <Smartphone size={24} className="text-black" />,
-    skills: [{ name: "React Native", rating: 4 }],
+    skills: [{ name: "React Native", rating: 3 }],
     description:
       "Building cross-platform mobile applications with native performance.",
   },
@@ -180,8 +180,8 @@ const skillsData = [
     title: "Platform Development",
     icon: <LayoutTemplate size={24} className="text-black" />,
     skills: [
-      { name: "Shopify", rating: 4 },
-      { name: "Wix", rating: 3 },
+      { name: "Shopify", rating: 3 },
+      { name: "Wix", rating: 4 },
       { name: "Framer", rating: 4 },
     ],
     description:
@@ -190,7 +190,7 @@ const skillsData = [
   {
     title: "Design & Prototyping",
     icon: <Bot size={24} className="text-black" />,
-    skills: [{ name: "Figma", rating: 4 }],
+    skills: [{ name: "Figma", rating: 3 }],
     description:
       "Designing user interfaces and creating interactive prototypes for better user experience.",
   },

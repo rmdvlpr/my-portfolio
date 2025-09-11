@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Poppins, Syne } from "next/font/google";
 import { useLenis } from "./hooks/useLenis";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({ children }) {
         scroll-smooth="true"
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
