@@ -34,7 +34,7 @@ const bodoniModa = Bodoni_Moda({
 
 const gfsDidot = GFS_Didot({
   variable: "--font-gfs-didot",
-  subsets: ["latin", "greek"],
+  subsets: ["greek"],
   weight: ["400"],
 });
 
