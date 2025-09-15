@@ -15,7 +15,7 @@ const Home = () => {
   const router = useRouter();
 
   const handleClickOutside = () => {
-    router.push("/pages/outside");
+    router.push("/outside");
   };
 
   const scrollToPortfolio = () => {
