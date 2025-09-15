@@ -6,10 +6,17 @@ import { motion } from "framer-motion";
 import { BsInstagram } from "react-icons/bs";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { Github } from "lucide-react";
+import { Tent } from "lucide-react";
 import Button from "../components/Button";
+import { useRouter } from "next/navigation";
 
 const Home = () => {
   const container = useRef(null);
+  const router = useRouter();
+
+  const handleClickOutside = () => {
+    router.push("/pages/outside");
+  };
 
   const scrollToPortfolio = () => {
     const portfolioSection = document.getElementById("portfolio");
@@ -109,6 +116,9 @@ const Home = () => {
           <a href="https://github.com/RamParedes06" className="top-bar-item">
             <Github size={24} />
           </a>
+          <div className="top-bar-item" onClick={handleClickOutside}>
+            <Tent size={24} />
+          </div>
         </div>
         <div className="top-bar-item">
           <p className="adamina font-extrabold hidden lg:block text-[14px] md:text-[18px] lg:text-2xl">

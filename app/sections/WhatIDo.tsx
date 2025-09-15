@@ -107,10 +107,10 @@ const skillsData = [
     skills: [
       { name: "React js", rating: 4 },
       { name: "Next.js", rating: 4 },
-      { name: "TypeScript", rating: 4 },
-      { name: "Tailwind CSS", rating: 5 },
+      { name: "TypeScript", rating: 3 },
+      { name: "Tailwind CSS", rating: 4 },
       { name: "Bootstrap", rating: 3 },
-      { name: "GSAP", rating: 3 },
+      { name: "GSAP", rating: 2 },
     ],
     description:
       "Building responsive and interactive user interfaces with modern frameworks and libraries.",
