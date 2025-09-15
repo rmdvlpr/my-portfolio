@@ -6,6 +6,9 @@ import me1 from "../../assets/me1.png";
 import me2 from "../../assets/me2.png";
 import espada from "../../assets/espada.png";
 import bontoc from "../../assets/bontoc.jpg";
+import friends2 from "../../assets/friends2.png";
+import friends3 from "../../assets/friends3.png";
+import ifugao from "../../assets/ifugao.png";
 import Image from "next/image";
 
 const MoodBoard = () => {
@@ -50,13 +53,13 @@ const MoodBoard = () => {
           <Image
             src={me1}
             alt="Mood board image"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover "
           />
         </div>
         {/* Image 6 (Bottom Left Wide) */}
         <div className="col-span-6 row-span-2 rounded-2xl overflow-hidden shadow-lg">
           <Image
-            src={me2}
+            src={ifugao}
             alt="Mood board image"
             className="w-full h-full object-cover"
           />

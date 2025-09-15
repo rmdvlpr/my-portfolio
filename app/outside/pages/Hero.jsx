@@ -1,12 +1,52 @@
+"use client";
 import React from "react";
 import me3 from "../../assets/me3.png";
 import ifugao from "../../assets/ifugao.png";
-import friends1 from "../../assets/friends1.png";
+import ledge from "../../assets/ledge.jpg";
+import friends2 from "../../assets/friends2.png";
+import friends3 from "../../assets/friends3.png";
+import friends4 from "../../assets/friends4.png";
+import maligcong from "../../assets/maligcong.jpg";
+import bontoc from "../../assets/bontoc.jpg";
+import awasen from "../../assets/awasen.png";
 import bghero from "../../assets/BG_HERO.png";
 import cagua from "../../assets/cagua.png";
 import Image from "next/image";
+import { BsInstagram } from "react-icons/bs";
+import { SlSocialLinkedin } from "react-icons/sl";
+import { Github } from "lucide-react";
+import { Braces } from "lucide-react";
+import Button from "../../components/Button";
+import { useRouter } from "next/navigation";
 
 const HeroOutside = () => {
+  const router = useRouter();
+  const handleClickOutside = () => {
+    router.push("/");
+  };
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    } else {
+      // Fallback: try to find the contact section after a short delay
+      setTimeout(() => {
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+          contactSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        } else {
+          console.warn("Contact section not found");
+        }
+      }, 100);
+    }
+  };
   return (
     <div
       className="min-h-screen relative  flex items-center justify-center p-4 sm:p-6 lg:p-8"
@@ -16,7 +56,44 @@ const HeroOutside = () => {
       }}
     >
       <div className="absolute inset-0 bg-black opacity-10"></div>
-
+      <div className="absolute px-20 top-20 w-full flex justify-between items-center pb-5 text-white">
+        <div className="flex gap-4">
+          <a
+            href="https://www.instagram.com/nature.lly_ram/"
+            className="top-bar-item"
+          >
+            <BsInstagram size={24} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/ram-paredes/"
+            className="top-bar-item"
+          >
+            <SlSocialLinkedin size={24} />
+          </a>
+          <a href="https://github.com/RamParedes06" className="top-bar-item">
+            <Github size={24} />
+          </a>
+          <div
+            className="top-bar-item cursor-pointer"
+            onClick={handleClickOutside}
+          >
+            <Braces size={24} />
+          </div>
+        </div>
+        <div className="top-bar-item">
+          <p className="adamina font-extrabold hidden lg:block text-[14px] md:text-[18px] lg:text-2xl">
+            Welcome to my weekends!
+          </p>
+        </div>
+        <div className="flex justify-end top-bar-item">
+          <Button
+            label="BOOK A CALL"
+            onClick={scrollToContact}
+            bgColor="bg-white"
+            textColor="text-black"
+          />
+        </div>
+      </div>
       <div className="max-w-7xl z-2 w-full mx-auto bg-black rounded-2xl shadow-2xl flex flex-col lg:flex-row overflow-hidden">
         {/* Left Panel */}
         <div className="w-full lg:w-2/5 flex-shrink-0 bg-gradient-to-br from-zinc-100 to-zinc-300 text-black p-8 sm:p-12 flex flex-col justify-center">
@@ -76,7 +153,7 @@ const HeroOutside = () => {
               </div>
               <div className="flex-grow relative rounded-t-full rounded-b-full overflow-hidden">
                 <Image
-                  src={ifugao}
+                  src={friends4}
                   alt="Close up of an eye"
                   layout="fill"
                   objectFit="cover"
@@ -89,11 +166,11 @@ const HeroOutside = () => {
             <div className="w-full md:w-1/3 flex flex-col gap-4">
               <div className="h-1/3 relative rounded-xl overflow-hidden">
                 <Image
-                  src={friends1}
+                  src={awasen}
                   alt="People collaborating"
                   layout="fill"
                   objectFit="cover"
-                  className="absolute inset-0"
+                  className="absolute inset-0 object-center"
                   loading="lazy"
                 />
               </div>

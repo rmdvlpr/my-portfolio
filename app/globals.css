@@ -42,3 +42,6 @@ body {
 .gfs-didot {
   font-family: var(--font-gfs-didot), sans-serif;
 }
+.instrument-serif {
+  font-family: var(--font-instrument-serif), sans-serif;
+}
