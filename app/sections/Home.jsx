@@ -125,7 +125,7 @@ const Home = () => {
         </div>
         <div className="top-bar-item">
           <p className="adamina font-extrabold hidden lg:block text-[14px] md:text-[18px] lg:text-2xl">
-            Welcome!
+            Welcome to my weekdays!
           </p>
         </div>
         <div className="flex justify-end top-bar-item">
