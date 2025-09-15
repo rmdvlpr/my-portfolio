@@ -116,7 +116,10 @@ const Home = () => {
           <a href="https://github.com/RamParedes06" className="top-bar-item">
             <Github size={24} />
           </a>
-          <div className="top-bar-item" onClick={handleClickOutside}>
+          <div
+            className="top-bar-item cursor-pointer"
+            onClick={handleClickOutside}
+          >
             <Tent size={24} />
           </div>
         </div>

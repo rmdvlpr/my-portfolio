@@ -33,3 +33,12 @@ body {
 .poppins {
   font-family: var(--font-poppins), sans-serif;
 }
+.oranienbaum {
+  font-family: var(--font-oranienbaum), sans-serif;
+}
+.bodoni-moda {
+  font-family: var(--font-bodoni-moda), sans-serif;
+}
+.gfs-didot {
+  font-family: var(--font-gfs-didot), sans-serif;
+}

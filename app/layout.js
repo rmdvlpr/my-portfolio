@@ -1,13 +1,36 @@
 "use client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Poppins, Syne } from "next/font/google";
+import {
+  Poppins,
+  Syne,
+  Oranienbaum,
+  GFS_Didot,
+  Bodoni_Moda,
+} from "next/font/google";
 import { useLenis } from "./hooks/useLenis";
 import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+const oranienbaum = Oranienbaum({
+  variable: "--font-oranienbaum",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const bodoniModa = Bodoni_Moda({
+  variable: "--font-bodoni-moda",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const gfsDidot = GFS_Didot({
+  variable: "--font-gfs-didot",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 const geistMono = Geist_Mono({
@@ -34,7 +57,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${syne.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${syne.variable} ${oranienbaum.variable} antialiased scroll-smooth`}
         antialiased="true"
         scroll-smooth="true"
       >
