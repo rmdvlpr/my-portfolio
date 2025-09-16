@@ -2,10 +2,10 @@ import React from "react";
 import Gallery from "./Gallery";
 const Header = () => {
   return (
-    <div className="min-h-screen p-4 sm:p-8 flex flex-col gap-6 sm:gap-10">
+    <div className="select-none min-h-screen p-4 sm:p-8 flex flex-col gap-6 sm:gap-10">
       {/* Top Section */}
       <div className="montserrat border-2 border-black rounded-3xl flex flex-col items-start p-6 sm:p-10 lg:flex-row lg:items-center lg:gap-20 lg:px-20">
-        <h1 className="font-semibold syne text-3xl sm:text-4xl lg:text-5xl mb-4 text-center lg:text-left">
+        <h1 className="font-semibold italic montserrat text-3xl sm:text-4xl lg:text-5xl mb-4 text-center lg:text-left">
           Explore Philippines
         </h1>
         <p className="text-black text-sm sm:text-base text-justify font-semibold">

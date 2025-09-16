@@ -17,7 +17,7 @@ const Quote = () => {
   return (
     <div
       ref={containerRef}
-      className="h-[50vh] flex items-center justify-center p-4 overflow-hidden text-center"
+      className="h-[50vh] select-none flex items-center justify-center p-4 overflow-hidden text-center"
     >
       <div className="instrument-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl text-gray-400 leading-[1.2]">
         {words.map((word, i) => {

@@ -10,7 +10,7 @@ const Button = ({
   return (
     <button
       onClick={onClick}
-      className={`button-container inline-block rounded-full ${bgColor} ${textColor} font-bold
+      className={`button-container montserrat inline-block rounded-full ${bgColor} ${textColor} font-bold
         px-4 py-2 text-sm 
         md:px-6 md:text-base 
         transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95`}

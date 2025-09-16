@@ -126,7 +126,7 @@ const HeroOutside = () => {
         </div>
 
         <div className="top-bar-item text-center mb-2 md:mb-0 hidden md:block">
-          <p className="adamina font-extrabold text-[14px] md:text-[18px] lg:text-2xl">
+          <p className="montserrat select-none font-extrabold text-[14px] md:text-[18px] lg:text-2xl">
             Welcome to my weekends!
           </p>
         </div>
@@ -142,7 +142,7 @@ const HeroOutside = () => {
       </div>
 
       {/* Main content container with negative margin */}
-      <div className="max-w-7xl w-full mx-auto bg-black rounded-2xl shadow-2xl flex flex-col lg:flex-row overflow-hidden outside-hero-content mt-30 md:mt-24">
+      <div className="max-w-7xl select-none w-full mx-auto bg-black rounded-2xl shadow-2xl flex flex-col lg:flex-row overflow-hidden outside-hero-content mt-30 md:mt-24">
         {/* ... (rest of the content remains unchanged) ... */}
         {/* Left Panel */}
         <div className=" montserrat w-full lg:w-2/5 flex-shrink-0 bg-gradient-to-br from-zinc-100 to-zinc-300 text-black p-8 sm:p-12 flex flex-col justify-center">
