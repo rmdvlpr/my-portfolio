@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { BsInstagram } from "react-icons/bs";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { Github } from "lucide-react";
-import { Tent } from "lucide-react";
+import { Phone } from "lucide-react";
 import Button from "../components/Button";
 import { useRouter } from "next/navigation";
 
@@ -118,9 +118,9 @@ const Home = () => {
           </a>
           <div
             className="top-bar-item cursor-pointer"
-            onClick={handleClickOutside}
+            onClick={scrollToContact}
           >
-            <Tent size={24} />
+            <Phone size={24} />
           </div>
         </div>
         <div className="top-bar-item">
@@ -129,7 +129,7 @@ const Home = () => {
           </p>
         </div>
         <div className="flex justify-end top-bar-item">
-          <Button label="BOOK A CALL" onClick={scrollToContact} />
+          <Button label="TO MY WEEKENDS" onClick={handleClickOutside} />
         </div>
       </div>
 
