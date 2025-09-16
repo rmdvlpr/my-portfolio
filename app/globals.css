@@ -33,6 +33,9 @@ body {
 .poppins {
   font-family: var(--font-poppins), sans-serif;
 }
+.montserrat {
+  font-family: var(--font-montserrat), sans-serif;
+}
 .oranienbaum {
   font-family: var(--font-oranienbaum), sans-serif;
 }

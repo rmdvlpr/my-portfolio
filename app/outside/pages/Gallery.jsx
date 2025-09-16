@@ -97,7 +97,7 @@ const MoodBoard = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-0 transition-opacity duration-500 group-hover:opacity-40"></div>
       {/* Title */}
-      <p className="absolute bottom-4 left-4 text-white text-base md:text-lg font-bold opacity-0 transition-opacity duration-500 transform group-hover:opacity-100">
+      <p className="montserrat absolute bottom-4 left-4 text-white text-base md:text-lg font-bold opacity-0 transition-opacity duration-500 transform group-hover:opacity-100">
         {image.title}
       </p>
     </div>

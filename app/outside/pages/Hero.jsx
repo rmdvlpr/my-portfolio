@@ -100,7 +100,7 @@ const HeroOutside = () => {
       <div className="absolute inset-0 bg-black opacity-10"></div>
 
       {/* Updated Nav for Mobile Responsiveness */}
-      <div className="nav absolute top-5 md:top-20 w-full z-10 text-white flex  items-center justify-between px-4 md:px-12 lg:px-20  md:flex md:justify-between">
+      <div className="nav montserrat absolute top-5 md:top-20 w-full z-10 text-white flex  items-center justify-between px-4 md:px-12 lg:px-20  md:flex md:justify-between">
         <div className="flex gap-4 mb-2 md:mb-0">
           <a
             href="https://www.instagram.com/nature.lly_ram/"
@@ -145,7 +145,7 @@ const HeroOutside = () => {
       <div className="max-w-7xl w-full mx-auto bg-black rounded-2xl shadow-2xl flex flex-col lg:flex-row overflow-hidden outside-hero-content mt-30 md:mt-24">
         {/* ... (rest of the content remains unchanged) ... */}
         {/* Left Panel */}
-        <div className="w-full lg:w-2/5 flex-shrink-0 bg-gradient-to-br from-zinc-100 to-zinc-300 text-black p-8 sm:p-12 flex flex-col justify-center">
+        <div className=" montserrat w-full lg:w-2/5 flex-shrink-0 bg-gradient-to-br from-zinc-100 to-zinc-300 text-black p-8 sm:p-12 flex flex-col justify-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 outside-hero-text">
             A Glimpse
             <br />
@@ -164,7 +164,7 @@ const HeroOutside = () => {
         <div className="w-full lg:w-3/5 p-4 sm:p-6 relative">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-green-500/40 blur-3xl rounded-full pointer-events-none"></div>
 
-          <div className="h-full flex flex-col md:flex-row gap-4">
+          <div className="h-full flex flex-col md:flex-row gap-4 montserrat">
             {/* Connecting with Nature Card */}
             <div className="w-full md:w-1/3 flex flex-col nature-card">
               <div className="flex-grow relative rounded-xl overflow-hidden">

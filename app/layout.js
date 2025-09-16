@@ -8,6 +8,7 @@ import {
   Instrument_Serif,
   GFS_Didot,
   Bodoni_Moda,
+  Montserrat,
 } from "next/font/google";
 import { useLenis } from "./hooks/useLenis";
 import { Analytics } from "@vercel/analytics/next";
@@ -15,6 +16,11 @@ import { Analytics } from "@vercel/analytics/next";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 const oranienbaum = Oranienbaum({
   variable: "--font-oranienbaum",
@@ -62,7 +68,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${syne.variable} ${oranienbaum.variable} ${instrumentSerif.variable} ${bodoniModa.variable} ${gfsDidot.variable} antialiased scroll-smooth`}
+        className={`${geistSans.variable} ${montserrat.variable} ${geistMono.variable} ${poppins.variable} ${syne.variable} ${oranienbaum.variable} ${instrumentSerif.variable} ${bodoniModa.variable} ${gfsDidot.variable} antialiased scroll-smooth`}
         antialiased="true"
         scroll-smooth="true"
       >

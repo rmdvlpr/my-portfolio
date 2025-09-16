@@ -124,7 +124,7 @@ const Home = () => {
           </div>
         </div>
         <div className="top-bar-item">
-          <p className="adamina font-extrabold hidden lg:block text-[14px] md:text-[18px] lg:text-2xl">
+          <p className="montserrat font-extrabold hidden lg:block text-[14px] md:text-[18px] lg:text-2xl">
             Welcome to my weekdays!
           </p>
         </div>
