@@ -2,10 +2,9 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const Quote = () => {
+const ToSee = () => {
   const containerRef = useRef(null);
-  const text =
-    "Travel may empty the wallet, but it fills the eyes and soul with priceless views.";
+  const text = "To see everything is to understand more.";
   const words = text.split(" ");
   const wordCount = words.length;
 
@@ -17,9 +16,9 @@ const Quote = () => {
   return (
     <div
       ref={containerRef}
-      className="h-[50vh] select-none flex items-center justify-center p-4 overflow-hidden text-center"
+      className="h-[20vh] md:h-[50vh] select-none flex items-center justify-center p-4 overflow-hidden text-center"
     >
-      <div className="instrument-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl text-black leading-[1.2]">
+      <div className="instrument-serif text-3xl sm:text-4xl md:text-10xl lg:text-[10rem] max-w-7xl text-black leading-[0.8]">
         {words.map((word, i) => {
           const start = i / wordCount;
           const end = (i + 1) / wordCount;
@@ -41,4 +40,4 @@ const Quote = () => {
   );
 };
 
-export default Quote;
+export default ToSee;

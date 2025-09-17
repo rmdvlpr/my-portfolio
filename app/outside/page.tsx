@@ -6,6 +6,8 @@ import Voyage from "./pages/Voyage.jsx";
 import Header from "./pages/Header.jsx";
 import Quote from "./pages/Quote.jsx";
 import Greet from "./pages/Greet.jsx";
+import ToSee from "./pages/ToSee.jsx";
+import Video from "./pages/Video.jsx";
 
 const page = () => {
   return (
@@ -14,6 +16,8 @@ const page = () => {
       <Quote />
       <Voyage />
       <Header />
+      <ToSee />
+      {/* <Video /> */}
       <Greet />
     </>
   );

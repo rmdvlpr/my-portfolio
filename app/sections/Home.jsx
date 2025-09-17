@@ -7,6 +7,7 @@ import { BsInstagram } from "react-icons/bs";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { Github } from "lucide-react";
 import { Phone } from "lucide-react";
+import { Leaf } from "lucide-react";
 import Button from "../components/Button";
 import { useRouter } from "next/navigation";
 
@@ -100,7 +101,7 @@ const Home = () => {
     >
       {/* === TOP BAR (Unchanged) === */}
       <div className="flex justify-between items-center pb-5">
-        <div className="flex gap-4">
+        <div className="max-w-[230px] w-full flex gap-4 ">
           <a
             href="https://www.instagram.com/nature.lly_ram/"
             className="top-bar-item"
@@ -123,13 +124,17 @@ const Home = () => {
             <Phone size={24} />
           </div>
         </div>
-        <div className="top-bar-item">
+        <div className="max-w-[500px] w-full top-bar-item flex justify-center ">
           <p className="montserrat font-extrabold hidden lg:block text-[14px] md:text-[18px] lg:text-2xl">
             Welcome to my weekdays!
           </p>
         </div>
-        <div className="flex justify-end top-bar-item">
-          <Button label="TO MY WEEKENDS" onClick={handleClickOutside} />
+        <div className="max-w-[230px] w-full flex justify-end top-bar-item ">
+          <Button
+            label="TO MY WEEKENDS"
+            onClick={handleClickOutside}
+            showLeaf
+          />
         </div>
       </div>
 
@@ -206,9 +211,6 @@ const Home = () => {
                     opacity: { duration: 0.3 },
                     filter: { duration: 0.4 },
                     y: { duration: 0.4, ease: "backOut" },
-                  }}
-                  style={{
-                    textShadow: "0 0 8px currentColor",
                   }}
                 >
                   {char === " " ? "\u00A0" : char}

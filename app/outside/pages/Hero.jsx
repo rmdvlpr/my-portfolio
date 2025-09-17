@@ -101,7 +101,7 @@ const HeroOutside = () => {
 
       {/* Updated Nav for Mobile Responsiveness */}
       <div className="nav montserrat absolute top-5 md:top-20 w-full z-10 text-white flex  items-center justify-between px-4 md:px-12 lg:px-20  md:flex md:justify-between">
-        <div className="flex gap-4 mb-2 md:mb-0">
+        <div className="max-w-[230px] w-full flex gap-4 mb-2 md:mb-0">
           <a
             href="https://www.instagram.com/nature.lly_ram/"
             className="top-bar-item"
@@ -125,18 +125,19 @@ const HeroOutside = () => {
           </div> */}
         </div>
 
-        <div className="top-bar-item text-center mb-2 md:mb-0 hidden md:block">
+        <div className=" max-w-[500px] w-full top-bar-item text-center mb-2 md:mb-0 hidden md:block">
           <p className="montserrat select-none font-extrabold text-[14px] md:text-[18px] lg:text-2xl">
             Welcome to my weekends!
           </p>
         </div>
 
-        <div className="top-bar-item">
+        <div className="top-bar-item max-w-[230px] w-full">
           <Button
             label="TO MY WEEKDAYS"
             onClick={() => router.push("/")}
             bgColor="bg-white"
             textColor="text-black"
+            showBraces
           />
         </div>
       </div>
