@@ -1,4 +1,3 @@
-"use client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import {
@@ -10,9 +9,8 @@ import {
   Bodoni_Moda,
   Montserrat,
 } from "next/font/google";
-import { useLenis } from "./hooks/useLenis";
 import { Analytics } from "@vercel/analytics/next";
-import Head from "next/head";
+import LenisProvider from "./components/LenisProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -64,20 +62,23 @@ const syne = Syne({
   display: "swap",
 });
 
+export const metadata = {
+  title: "Ram Paredes",
+  description: "Your website description",
+  icons: {
+    icon: "/mountain.svg",
+  },
+};
+
 export default function RootLayout({ children }) {
-  useLenis();
   return (
     <html lang="en">
-      <Head>
-        <link rel="icon" href="/mountain.svg" type="image/svg+xml" />
-        <title>Ram Paredes</title>
-      </Head>
       <body
         className={`${geistSans.variable} ${montserrat.variable} ${geistMono.variable} ${poppins.variable} ${syne.variable} ${oranienbaum.variable} ${instrumentSerif.variable} ${bodoniModa.variable} ${gfsDidot.variable} antialiased scroll-smooth`}
         antialiased="true"
         scroll-smooth="true"
       >
-        {children}
+        <LenisProvider>{children}</LenisProvider>
         <Analytics />
       </body>
     </html>
