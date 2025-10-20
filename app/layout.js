@@ -66,7 +66,7 @@ export const metadata = {
   title: "Ram Paredes",
   description: "Your website description",
   icons: {
-    icon: "/mountain.svg",
+    icon: "/mountain-svg.svg",
   },
 };
 
