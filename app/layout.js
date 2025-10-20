@@ -12,6 +12,7 @@ import {
 } from "next/font/google";
 import { useLenis } from "./hooks/useLenis";
 import { Analytics } from "@vercel/analytics/next";
+import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -67,6 +68,10 @@ export default function RootLayout({ children }) {
   useLenis();
   return (
     <html lang="en">
+      <Head>
+        <link rel="icon" href="/mountain.svg" type="image/svg+xml" />
+        <title>Ram Paredes</title>
+      </Head>
       <body
         className={`${geistSans.variable} ${montserrat.variable} ${geistMono.variable} ${poppins.variable} ${syne.variable} ${oranienbaum.variable} ${instrumentSerif.variable} ${bodoniModa.variable} ${gfsDidot.variable} antialiased scroll-smooth`}
         antialiased="true"

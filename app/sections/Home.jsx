@@ -16,7 +16,7 @@ const Home = () => {
   const router = useRouter();
 
   const handleClickOutside = () => {
-    router.push("/outside");
+    router.push("/my-weekends");
   };
 
   const scrollToPortfolio = () => {
