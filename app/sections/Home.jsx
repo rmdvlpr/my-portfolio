@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { motion } from "framer-motion";
@@ -7,13 +7,38 @@ import { BsInstagram } from "react-icons/bs";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { Github } from "lucide-react";
 import { Phone } from "lucide-react";
-import { Leaf } from "lucide-react";
 import Button from "../components/Button";
 import { useRouter } from "next/navigation";
 
 const Home = () => {
   const container = useRef(null);
   const router = useRouter();
+  const [displayedText, setDisplayedText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+
+  const taglineText =
+    "Turning ideas into beautiful, intuitive products that make a difference.";
+  const frontEndText = "FRONT END DEVELOPER";
+
+  // Typing effect for tagline
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      let currentIndex = 0;
+      const typingInterval = setInterval(() => {
+        if (currentIndex <= taglineText.length) {
+          setDisplayedText(taglineText.slice(0, currentIndex));
+          currentIndex++;
+        } else {
+          clearInterval(typingInterval);
+          setShowCursor(false);
+        }
+      }, 50);
+
+      return () => clearInterval(typingInterval);
+    }, 3500); // Start typing after FRONT END DEVELOPER animation completes
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleClickOutside = () => {
     router.push("/my-weekends");
@@ -99,7 +124,7 @@ const Home = () => {
       ref={container}
       className="home-container h-screen p-6 md:p-12 lg:p-20 flex flex-col justify-between select-none overflow-hidden"
     >
-      {/* === TOP BAR (Unchanged) === */}
+      {/* === TOP BAR === */}
       <div className="flex justify-between items-center pb-5">
         <div className="max-w-[230px] w-full flex gap-4 ">
           <a
@@ -124,42 +149,136 @@ const Home = () => {
             <Phone size={24} />
           </div>
         </div>
-        <div className="max-w-[500px] w-full top-bar-item flex justify-center ">
-          <p className="montserrat font-extrabold hidden lg:block text-[14px] md:text-[18px] lg:text-2xl">
+        <div className=" max-w-[400px] w-full top-bar-item text-center mb-2 md:mb-0 hidden md:block">
+          <p className="montserrat select-none font-extrabold text-[14px] md:text-[18px] lg:text-2xl">
             Welcome to my weekdays!
           </p>
         </div>
-        <div className="max-w-[230px] w-full flex justify-end top-bar-item ">
-          <Button
-            label="TO MY WEEKENDS"
-            onClick={handleClickOutside}
-            showLeaf
-          />
+        <div className="top-bar-item max-w-[230px] w-full">
+          <Button label="WEEKENDS" onClick={handleClickOutside} showLeaf />
         </div>
       </div>
 
-      {/* === CENTER CONTENT (Unchanged) === */}
+      {/* === CENTER CONTENT === */}
       <div className="flex flex-col justify-center items-center gap-1 text-center">
+        {/* Name with letter-by-letter animation */}
         <div className="hero-text">
-          <div className="text-[53px] md:text-8xl lg:text-[105px] adamina relative">
-            R<span className="italic">a</span>m Paredes
-          </div>
+          <motion.div
+            className="text-[53px] md:text-8xl lg:text-[105px] adamina relative hero-glow"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            {"Ram Paredes".split("").map((char, index) => (
+              <motion.span
+                key={index}
+                className={
+                  char === "a" ? "italic inline-block" : "inline-block"
+                }
+                initial={{
+                  opacity: 0,
+                  y: 100,
+                  rotateX: -90,
+                  scale: 0.3,
+                  filter: "blur(10px)",
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  rotateX: 0,
+                  scale: 1,
+                  filter: "blur(0px)",
+                }}
+                transition={{
+                  delay: 0.8 + index * 0.08,
+                  duration: 0.8,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  type: "spring",
+                  stiffness: 120,
+                  damping: 12,
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  color: "#bfbfbf",
+                  transition: { duration: 0.2 },
+                }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
+          </motion.div>
         </div>
+
+        {/* Animated "FRONT END DEVELOPER" */}
         <div className="hero-text">
-          <p className="syne font-medium text-3xl md:text-5xl lg:text-6xl text-[#bfbfbf]">
-            FRONT END DEVELOPER
-          </p>
+          <motion.div
+            className="syne font-medium text-3xl md:text-5xl lg:text-6xl text-[#bfbfbf] tracking-wider"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 1.5 }}
+          >
+            {frontEndText.split("").map((char, index) => (
+              <motion.span
+                key={index}
+                className="inline-block"
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                  scale: 0.5,
+                  rotateY: -90,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  rotateY: 0,
+                }}
+                transition={{
+                  delay: 1.8 + index * 0.05,
+                  duration: 0.6,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  type: "spring",
+                  stiffness: 100,
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  color: "#ffffff",
+                  transition: { duration: 0.2 },
+                }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
+          </motion.div>
         </div>
+
+        {/* Typing effect for tagline */}
         <div className="hero-text">
-          <p className="font-extrabold text-base md:text-lg lg:text-xl">
-            Turning ideas into beautiful, intuitive products that make a
-            difference.
-          </p>
+          <motion.div
+            className="font-extrabold text-base md:text-lg lg:text-xl min-h-[2em] flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 3.5, duration: 0.5 }}
+          >
+            <span className="relative">
+              {displayedText}
+              {showCursor && (
+                <motion.span
+                  className="inline-block w-0.5 h-5 bg-current ml-1"
+                  animate={{ opacity: [1, 0] }}
+                  transition={{
+                    duration: 0.8,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                  }}
+                />
+              )}
+            </span>
+          </motion.div>
         </div>
       </div>
 
-      {/* === BOTTOM BAR (Refactored) === */}
-      {/* Using justify-center and a larger gap for controlled, spacious alignment */}
+      {/* === BOTTOM BAR === */}
       <div className="flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-24">
         <div className="syne font-extrabold text-[14px] md:text-[18px] lg:text-2xl relative">
           <motion.div

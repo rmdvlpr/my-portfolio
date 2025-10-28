@@ -21,8 +21,8 @@ const Button = ({
     <button
       onClick={onClick}
       className={`button-container montserrat inline-flex items-center justify-center gap-2 rounded-full ${bgColor} ${textColor} font-bold
-        px-4 py-2 text-sm 
-        md:px-6 md:text-base 
+        px-4 py-2 text-sm min-w-[180px]
+        md:px-6 md:text-base md:min-w-[200px]
         transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95`}
       {...props}
     >

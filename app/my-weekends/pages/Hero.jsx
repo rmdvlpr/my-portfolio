@@ -120,12 +120,6 @@ const HeroOutside = () => {
           <a href="https://github.com/RamParedes06" className="top-bar-item">
             <Github size={24} />
           </a>
-          {/* <div
-            className="top-bar-item cursor-pointer"
-            onClick={handleClickOutside}
-          >
-            <Braces size={24} />
-          </div> */}
         </div>
 
         <div className=" max-w-[500px] w-full top-bar-item text-center mb-2 md:mb-0 hidden md:block">
@@ -136,7 +130,7 @@ const HeroOutside = () => {
 
         <div className="top-bar-item max-w-[230px] w-full">
           <Button
-            label="TO MY WEEKDAYS"
+            label="WEEKDAYS"
             onClick={() => router.push("/")}
             bgColor="bg-white"
             textColor="text-black"
