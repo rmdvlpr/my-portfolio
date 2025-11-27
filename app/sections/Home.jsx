@@ -164,7 +164,7 @@ const Home = () => {
         {/* Name with letter-by-letter animation */}
         <div className="hero-text">
           <motion.div
-            className="text-[53px] md:text-8xl lg:text-[105px] adamina relative hero-glow"
+            className="text-[53px] md:text-8xl lg:text-[105px] syne relative hero-glow"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -212,7 +212,7 @@ const Home = () => {
         {/* Animated "FRONT END DEVELOPER" */}
         <div className="hero-text">
           <motion.div
-            className="syne font-medium text-3xl md:text-5xl lg:text-6xl text-[#bfbfbf] tracking-wider"
+            className="playfair-display font-medium text-3xl md:text-5xl lg:text-6xl text-[#bfbfbf] tracking-wider"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.5 }}

@@ -8,6 +8,7 @@ import {
   GFS_Didot,
   Bodoni_Moda,
   Montserrat,
+  Playfair_Display,
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import LenisProvider from "./components/LenisProvider";
@@ -61,6 +62,12 @@ const syne = Syne({
   variable: "--font-syne",
   display: "swap",
 });
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-playfair-display",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Ram Paredes",
@@ -74,7 +81,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${montserrat.variable} ${geistMono.variable} ${poppins.variable} ${syne.variable} ${oranienbaum.variable} ${instrumentSerif.variable} ${bodoniModa.variable} ${gfsDidot.variable} antialiased scroll-smooth`}
+        className={`${geistSans.variable} ${montserrat.variable} ${geistMono.variable} ${poppins.variable} ${syne.variable} ${oranienbaum.variable} ${instrumentSerif.variable} ${bodoniModa.variable} ${gfsDidot.variable} {playfairDisplay.variable} antialiased scroll-smooth`}
         antialiased="true"
         scroll-smooth="true"
       >

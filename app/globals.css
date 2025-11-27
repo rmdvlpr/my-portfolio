@@ -48,6 +48,9 @@ body {
 .instrument-serif {
   font-family: var(--font-instrument-serif), sans-serif;
 }
+.playfair-display {
+  font-family: var(--font-playfair-display), sans-serif;
+}
 /* Custom Glitch Effects */
 .glitch-text {
   position: relative;

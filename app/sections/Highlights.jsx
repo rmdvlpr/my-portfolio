@@ -9,7 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // --- ASSETS ---
 import qube1 from "../assets/qube1.png";
 import wtp2 from "../assets/wtp2.png";
-import narwhal from "../assets/narwhal.png";
+import bundokista from "../assets/bundokista.png";
 import aiqueweb from "../assets/aique.png";
 
 // --- GSAP PLUGIN REGISTRATION ---
@@ -32,11 +32,11 @@ const projects = [
     link: "https://walktheplanet.com",
   },
   {
-    src: narwhal,
-    title: "Narwhal Pay",
+    src: bundokista,
+    title: "Bundokista Hiking And Travel ",
     description:
-      "A fintech solution providing streamlined payment processing services for businesses and individuals.",
-    link: "http://paynarwhal.com/",
+      "A travel-focused application encouraging users to explore new places on foot, Mountains, Beaches, Falls, and more.",
+    link: "https://bundokista-frontend.onrender.com/",
   },
   {
     src: aiqueweb,
