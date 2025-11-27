@@ -7,13 +7,15 @@ import Text from "./sections/Text";
 import DesignData from "./sections/DesignData";
 import Story from "./sections/Story";
 import WhatIDo from "./sections/WhatIDo";
+import Experience from "./sections/Experience";
+
 export default function Page() {
   return (
     <div className="main-container select-none">
       <Home />
       <WhatIDo />
       <Text />
-
+      <Experience />
       <Highlight />
       <About />
       <Process />
