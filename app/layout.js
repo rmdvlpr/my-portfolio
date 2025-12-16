@@ -12,6 +12,7 @@ import {
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import LenisProvider from "./components/LenisProvider";
+import LoadingProvider from "./components/LoadingProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -85,7 +86,9 @@ export default function RootLayout({ children }) {
         antialiased="true"
         scroll-smooth="true"
       >
-        <LenisProvider>{children}</LenisProvider>
+        <LoadingProvider>
+          <LenisProvider>{children}</LenisProvider>
+        </LoadingProvider>
         <Analytics />
       </body>
     </html>

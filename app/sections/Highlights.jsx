@@ -10,7 +10,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import qube1 from "../assets/qube1.png";
 import wtp2 from "../assets/wtp2.png";
 import bundokista from "../assets/bundokista.png";
-import aiqueweb from "../assets/aique.png";
+import blog from "../assets/Blog.png";
+
 
 // --- GSAP PLUGIN REGISTRATION ---
 gsap.registerPlugin(ScrollTrigger);
@@ -23,7 +24,7 @@ const projects = [
     description:
       "A web platform for a smart locker system, allowing users to manage and interact with their locker rentals.",
     link: "https://www.qubesmartlockers.com/",
-    tags: ["Next.js", "Node.js", "AWS r2", "Framer Motion", "GSAP", "Tailwind"],
+    tags: ["Next.js", "Node.js",  "AWS r2", "Framer Motion", "GSAP", "Tailwind"],
     type: "Corporate"
   },
   {
@@ -45,13 +46,13 @@ const projects = [
     type: "Freelance"
   },
   {
-    src: aiqueweb,
-    title: "Aique Innovation",
+    src: blog,
+    title: "Words & Stories",
     description:
-      "The corporate website for a tech innovation company, showcasing their services and portfolio.",
-    link: "https://aiqueinnovation.com/",
-    tags: ["React.js", "Framer"],
-    type: "Corporate"
+      "A whitelisted website for poetry and stories, allowing users to submit and share their work.",
+    link: "https://rioramilo.onrender.com/",
+    tags: ["Next.js", "Node.js", "MongoDB", "Express.js" , "Cloudinary", "JWT" , "Framer Motion", "GSAP", "Tailwind"],
+    type: "Freelance"
   },
 ];
 
@@ -286,10 +287,10 @@ const Highlights = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-xl text-gray-900 mb-2">
-                    Flight and Hotels Booking
+                   Human Resource Management System
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    An integrated travel platform for booking / managing flights and hotels with real-time availability and pricing.
+                    A Customize Human Resource Management System for a company.
                   </p>
                   <div className="mt-3 flex items-center gap-2">
                     <span className="inline-block w-2 h-2 bg-black rounded-full animate-pulse"></span>
