@@ -1,27 +1,37 @@
 // app/my-weekends/page.tsx
 
-import React from "react";
+"use client";
+import { useState, useEffect } from "react";
 import HeroOutside from "./pages/Hero.jsx";
 import Voyage from "./pages/Voyage.jsx";
 import Header from "./pages/Header.jsx";
 import Quote from "./pages/Quote.jsx";
 import Greet from "./pages/Greet.jsx";
 import ToSee from "./pages/ToSee.jsx";
-import Nature from "./pages/Nature.jsx";
-import Video from "./pages/Video.jsx";
+import NatureLoadingScreen from "../components/NatureLoadingScreen.jsx";
 
-const page = () => {
+const Page = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
   return (
     <>
-      <HeroOutside />
-      <Quote />
-      <Voyage />
-      <Header />
-      <ToSee />
-      {/* <Nature /> */}
-      <Greet />
+      {isLoading && <NatureLoadingScreen onComplete={handleLoadingComplete} />}
+      {!isLoading && (
+        <>
+          <HeroOutside />
+          <Quote />
+          <Voyage />
+          <Header />
+          <ToSee />
+          <Greet />
+        </>
+      )}
     </>
   );
 };
 
-export default page;
+export default Page;

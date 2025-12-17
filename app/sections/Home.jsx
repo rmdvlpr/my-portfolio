@@ -210,9 +210,13 @@ const Home = () => {
         </div>
 
         {/* Animated "FRONT END DEVELOPER" */}
-        <div className="hero-text">
+        <div className="hero-text w-full px-2 sm:px-4">
           <motion.div
-            className="playfair-display font-medium text-3xl md:text-5xl lg:text-6xl text-[#bfbfbf] tracking-wider"
+            className="playfair-display font-medium text-[#bfbfbf] tracking-wider whitespace-nowrap text-center"
+            style={{
+              fontSize: 'clamp(1.2rem, 6vw, 4rem)',
+              lineHeight: '1.1'
+            }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.5 }}

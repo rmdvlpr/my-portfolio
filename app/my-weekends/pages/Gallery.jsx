@@ -1,16 +1,7 @@
 "use client";
-import React, { useState } from "react";
-import topview from "../../assets/topview.jpg";
-import awasen from "../../assets/awasen.png";
-import helicopter from "../../assets/helicopterisland.jpg";
-import me1 from "../../assets/me1.png";
-import espada from "../../assets/espada.png";
-import bontoc from "../../assets/bontoc.jpg";
-import ifugao from "../../assets/ifugao.png";
+import { useState } from "react";
 import Image from "next/image";
 import { X } from "lucide-react";
-import Button from "../../components/Button";
-import { useRouter } from "next/navigation";
 
 // Modal component for displaying the clicked image
 const Modal = ({ image, onClose }) => {
@@ -57,14 +48,13 @@ const Modal = ({ image, onClose }) => {
 const MoodBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
-  const router = useRouter();
 
   // Array of image data with titles
   const images = [
     {
-      src: "https://ik.imagekit.io/ramparedes/Images/topview.jpg?updatedAt=1758617839916",
-      alt: "Top view Helicopter island, Snorkling Area",
-      title: "Helicopter Island, El Nido, Palawan",
+      src: "https://ik.imagekit.io/ramparedes/Images/Boulders.jpeg",
+      alt: "Sunrise over Mt.Apo's Boulders Face",
+      title: "Boulders Face, Mt. Apo, Davao Del Sur",
     },
     {
       src: "https://ik.imagekit.io/ramparedes/Images/awasen.png?updatedAt=1758617832077",
@@ -82,9 +72,9 @@ const MoodBoard = () => {
       title: "Maligcong Rice Terraces, Bontoc MP",
     },
     {
-      src: "https://ik.imagekit.io/ramparedes/Images/me1.png?updatedAt=1758617843380",
-      alt: "Mt. Ulap",
-      title: "Mount Ulap, Itogon, Benguet",
+      src: "https://ik.imagekit.io/ramparedes/Images/ApoSummit.jpg",
+      alt: "Mt. Apo Summit",
+      title: "Mt. Apo, Davao Del Sur",
     },
     {
       src: "https://ik.imagekit.io/ramparedes/Images/ifugao.jpeg?updatedAt=1758704411632",
@@ -127,6 +117,34 @@ const MoodBoard = () => {
   return (
     <>
       <div className="min-h-screen relative bg-white p-2 flex flex-col items-center justify-center">
+        {/* Gallery Header */}
+        <div className="text-center mb-12 max-w-4xl px-4">
+          <div className="inline-block relative">
+            <h1 className="text-4xl md:text-6xl font-bold montserrat mb-4 text-black relative z-10">
+              Favorite Trips
+              <span className="block text-2xl md:text-3xl font-normal italic text-gray-600 mt-2">
+                Memories Captured
+              </span>
+            </h1>
+            {/* Decorative line */}
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-black"></div>
+          </div>
+          <p className="text-gray-700 text-base md:text-lg font-medium mt-6 leading-relaxed">
+            A collection of my favorite adventures and unforgettable moments. 
+            Each image tells a story of breathtaking landscapes, challenging hikes, 
+            and the pure joy of exploring the Philippines' most stunning destinations.
+          </p>
+          
+          {/* Bottom decorative element */}
+          <div className="mt-8">
+            <div className="inline-flex items-center gap-2">
+              <div className="w-2 h-2 bg-black rounded-full"></div>
+              <div className="w-4 h-0.5 bg-black"></div>
+              <div className="w-2 h-2 bg-black rounded-full"></div>
+            </div>
+          </div>
+        </div>
+        
         <div className="grid grid-cols-12 grid-rows-6 gap-4 w-full max-w-8xl h-[800px]">
           {/* Image 1 (Left Tall) */}
           {renderImage(images[0], "col-span-3 row-span-4")}

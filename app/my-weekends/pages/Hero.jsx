@@ -4,7 +4,7 @@ import me3 from "../../assets/me3.png";
 import bghero from "../../assets/BG_HERO.png";
 import awasen from "../../assets/awasen.png";
 import cagua from "../../assets/cagua.png";
-import friends4 from "../../assets/friends4.png";
+import friends4 from "../../assets/Friendship.jpg";
 import Image from "next/image";
 import { BsInstagram } from "react-icons/bs";
 import { SlSocialLinkedin } from "react-icons/sl";
@@ -202,7 +202,7 @@ const HeroOutside = () => {
               </div>
               <div className="flex-grow relative rounded-t-full rounded-b-full overflow-hidden friends-card">
                 <Image
-                  src="https://ik.imagekit.io/ramparedes/Images/friends4.png?updatedAt=1758617839026"
+                  src="https://ik.imagekit.io/ramparedes/Images/Friendship.jpg"
                   alt="Group of friends"
                   layout="fill"
                   objectFit="cover"

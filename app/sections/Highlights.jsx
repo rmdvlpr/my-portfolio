@@ -253,7 +253,55 @@ const Highlights = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+             {/* Real Estate Property Website Project */}
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
+              <div className="flex items-start gap-4">
+                <div className="border-2 border-gray-300 rounded-lg p-3 flex-shrink-0">
+                  <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-xl text-gray-900 mb-2">
+                    Real Estate Property Platform
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    A comprehensive real estate platform with property listings, virtual tours, and agent management system.
+                  </p>
+                  <div className="mt-3 flex items-center gap-2">
+                    <span className="inline-block w-2 h-2 bg-black rounded-full animate-pulse"></span>
+                    <span className="text-xs text-gray-700 font-medium">In Progress</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            {/* Human Resource Management System Project */}
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
+              <div className="flex items-start gap-4">
+                <div className="border-2 border-gray-300 rounded-lg p-3 flex-shrink-0">
+                  <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-xl text-gray-900 mb-2">
+                   Human Resource Management System
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    A Customize Human Resource Management System for a company.
+                  </p>
+                  <div className="mt-3 flex items-center gap-2">
+                    <span className="inline-block w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
+                    <span className="text-xs text-gray-700 font-medium">Soon to Develop</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Dental Booking Project */}
             <div className="bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
               <div className="flex items-start gap-4">
@@ -270,35 +318,14 @@ const Highlights = () => {
                     A comprehensive booking system for dental clinic with appointment management and patient records.
                   </p>
                   <div className="mt-3 flex items-center gap-2">
-                    <span className="inline-block w-2 h-2 bg-black rounded-full animate-pulse"></span>
-                    <span className="text-xs text-gray-700 font-medium">In Progress</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Flight and Hotels Booking Project */}
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
-              <div className="flex items-start gap-4">
-                <div className="border-2 border-gray-300 rounded-lg p-3 flex-shrink-0">
-                  <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-xl text-gray-900 mb-2">
-                   Human Resource Management System
-                  </h3>
-                  <p className="text-gray-600 text-sm">
-                    A Customize Human Resource Management System for a company.
-                  </p>
-                  <div className="mt-3 flex items-center gap-2">
-                    <span className="inline-block w-2 h-2 bg-black rounded-full animate-pulse"></span>
+                    <span className="inline-block w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
                     <span className="text-xs text-gray-700 font-medium">Soon to Develop</span>
                   </div>
                 </div>
               </div>
             </div>
+
+           
           </div>
         </div>
       </div>
