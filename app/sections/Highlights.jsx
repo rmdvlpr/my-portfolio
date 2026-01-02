@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useRef } from "react";
 import { ArrowUpRight, Briefcase, User } from "lucide-react";
 import { useGSAP } from "@gsap/react";
@@ -7,10 +8,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // --- ASSETS ---
-import qube1 from "../assets/qube1.png";
-import wtp2 from "../assets/wtp2.png";
+import qubeHero from "../assets/qube-hero.png";
 import bundokista from "../assets/bundokista.png";
-import blog from "../assets/Blog.png";
 
 
 // --- GSAP PLUGIN REGISTRATION ---
@@ -19,40 +18,24 @@ gsap.registerPlugin(ScrollTrigger);
 // --- PROJECT DATA ---
 const projects = [
   {
-    src: qube1,
+    src: bundokista,
+    title: "Bundokista Hiking And Travel",
+    description:
+      "A full-stack travel platform designed for outdoor enthusiasts. Features comprehensive trail guides, photo sharing capabilities, user profiles, and community features. Built with modern web technologies and cloud-based image management.",
+    link: "/projects/bundokista",
+    externalLink: "https://bundokista-frontend.onrender.com/",
+    tags: ["Next.js", "Node.js", "MongoDB", "Express.js" , "Cloudinary", "JWT" , "Framer Motion", "GSAP", "Tailwind"],
+    type: "Freelance"
+  },
+  {
+    src: qubeHero,
     title: "QUBE Smart Locker",
     description:
-      "A web platform for a smart locker system, allowing users to manage and interact with their locker rentals.",
-    link: "https://www.qubesmartlockers.com/",
-    tags: ["Next.js", "Node.js",  "AWS r2", "Framer Motion", "GSAP", "Tailwind"],
+      "A comprehensive web platform revolutionizing storage solutions through IoT integration. Features real-time locker monitoring, secure payment processing, user management, and analytics dashboard for modern smart locker networks.",
+    link: "/projects/qube-smart-locker",
+    externalLink: "https://www.qubesmartlockers.com/",
+    tags: ["Next.js", "Node.js",  "AWS R2", "Framer Motion", "GSAP", "Tailwind"],
     type: "Corporate"
-  },
-  {
-    src: wtp2,
-    title: "WalkThePlanet",
-    description:
-      "A travel-focused application encouraging users to explore new places on foot, tracking their journeys and discoveries.",
-    link: "https://walktheplanet.com",
-    tags: ["Next.js", "Node.js", "AWS r2", "Framer Motion", "GSAP", "Tailwind"],
-    type: "Corporate"
-  },
-  {
-    src: bundokista,
-    title: "Bundokista Hiking And Travel ",
-    description:
-      "A travel-focused website for hiking and travel enthusiasts",
-    link: "https://bundokista-frontend.onrender.com/",
-    tags: ["Next.js", "Node.js", "MongoDB", "Express.js" , "Cloudinary", "JWT" , "Framer Motion", "GSAP", "Tailwind"],
-    type: "Freelance"
-  },
-  {
-    src: blog,
-    title: "Words & Stories",
-    description:
-      "A whitelisted website for poetry and stories, allowing users to submit and share their work.",
-    link: "https://rioramilo.onrender.com/",
-    tags: ["Next.js", "Node.js", "MongoDB", "Express.js" , "Cloudinary", "JWT" , "Framer Motion", "GSAP", "Tailwind"],
-    type: "Freelance"
   },
 ];
 
@@ -164,18 +147,17 @@ const Highlights = () => {
     >
       <div className="max-w-7xl mx-auto">
         <SectionTitle primary="PORTFOLIO" secondary="HIGHLIGHTS" />
-        <p className="intro-paragraph poppins text-center text-lg text-gray-600 max-w-2xl mx-auto mb-20">
-          A curated collection of projects I've built, showcasing my passion for
-          creating intuitive digital experiences.
+        <p className="intro-paragraph poppins text-center text-lg text-gray-600 max-w-3xl mx-auto mb-20">
+          Discover my featured projects showcasing expertise in full-stack development and modern web technologies. 
+          From freelance creative solutions to corporate platforms, each project demonstrates innovative problem-solving 
+          and cutting-edge implementation.
         </p>
 
         <div className="projects-grid grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {projects.map((item, index) => (
-            <a
+            <Link
               key={index}
               href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
               className="project-card block group cursor-pointer"
             >
               <div className="relative overflow-hidden">
@@ -231,15 +213,29 @@ const Highlights = () => {
                       
                       {/* View Project Link */}
                       <div className="project-link inline-flex items-center gap-2 text-sm font-medium">
-                        <span>View Project</span>
+                        <span>View Project Details</span>
                         <ArrowUpRight size={16} />
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
+        </div>
+
+        {/* View All Projects Button */}
+        <div className="text-center mt-16">
+          <Link 
+            href="/projects"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
+          >
+            <span>Explore All Projects</span>
+            <ArrowUpRight size={20} />
+          </Link>
+          <p className="text-gray-500 text-sm mt-3">
+            View 5+ projects including OnKyu, WalkThePlanet, Words & Stories and more
+          </p>
         </div>
 
         {/* Current Projects Section */}
