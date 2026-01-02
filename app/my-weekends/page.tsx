@@ -8,6 +8,8 @@ import Header from "./pages/Header.jsx";
 import Quote from "./pages/Quote.jsx";
 import Greet from "./pages/Greet.jsx";
 import ToSee from "./pages/ToSee.jsx";
+import CampfireMoments from "./pages/CampfireMoments.jsx";
+import SummitReflections from "./pages/SummitReflections.jsx";
 import NatureLoadingScreen from "../components/NatureLoadingScreen.jsx";
 
 const Page = () => {
@@ -26,6 +28,8 @@ const Page = () => {
           <Quote />
           <Voyage />
           <Header />
+          <CampfireMoments />
+          <SummitReflections />
           <ToSee />
           <Greet />
         </>

@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const NatureLoadingScreen = ({ onComplete }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
+  const [randomPositions, setRandomPositions] = useState([]);
+  const [isClient, setIsClient] = useState(false);
 
   const steps = [
     "Opening the portal",
@@ -14,6 +16,28 @@ const NatureLoadingScreen = ({ onComplete }) => {
     "Setting up the campfire",
     "Telling the story",
   ];
+
+  useEffect(() => {
+    // Generate random positions only on client side
+    setIsClient(true);
+    setRandomPositions({
+      leaves: [...Array(6)].map(() => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        duration: 4 + Math.random() * 2,
+      })),
+      codeSymbols: ['{ }', '</>', '< />', '{ }'].map(() => ({
+        left: 20 + Math.random() * 60,
+        top: 20 + Math.random() * 60,
+        duration: 3 + Math.random() * 2,
+      })),
+      binaryRain: [...Array(12)].map(() => ({
+        left: Math.random() * 100,
+        duration: 8 + Math.random() * 4,
+        content: Math.random() > 0.5 ? '1' : '0',
+      })),
+    });
+  }, []);
 
   useEffect(() => {
     const stepInterval = setInterval(() => {
@@ -146,13 +170,13 @@ const NatureLoadingScreen = ({ onComplete }) => {
 
           {/* Animated Leaves and Code Elements */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {[...Array(6)].map((_, i) => (
+            {isClient && randomPositions.leaves && randomPositions.leaves.map((leaf, i) => (
               <motion.div
                 key={`leaf-${i}`}
                 className="absolute"
                 style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
+                  left: `${leaf.left}%`,
+                  top: `${leaf.top}%`,
                 }}
                 animate={{
                   y: [-30, 30, -30],
@@ -161,7 +185,7 @@ const NatureLoadingScreen = ({ onComplete }) => {
                   opacity: [0.3, 0.8, 0.3],
                 }}
                 transition={{
-                  duration: 4 + Math.random() * 2,
+                  duration: leaf.duration,
                   repeat: Infinity,
                   delay: i * 0.5,
                   ease: "easeInOut",
@@ -177,13 +201,13 @@ const NatureLoadingScreen = ({ onComplete }) => {
             ))}
             
             {/* Floating Code Symbols */}
-            {['{ }', '</>', '< />', '{ }'].map((symbol, i) => (
+            {isClient && randomPositions.codeSymbols && ['{ }', '</>', '< />', '{ }'].map((symbol, i) => (
               <motion.div
                 key={`code-${i}`}
                 className="absolute text-teal-400 font-mono text-sm opacity-30"
                 style={{
-                  left: `${20 + Math.random() * 60}%`,
-                  top: `${20 + Math.random() * 60}%`,
+                  left: `${randomPositions.codeSymbols[i]?.left}%`,
+                  top: `${randomPositions.codeSymbols[i]?.top}%`,
                 }}
                 animate={{
                   y: [-20, 20, -20],
@@ -192,7 +216,7 @@ const NatureLoadingScreen = ({ onComplete }) => {
                   rotate: [-5, 5, -5],
                 }}
                 transition={{
-                  duration: 3 + Math.random() * 2,
+                  duration: randomPositions.codeSymbols[i]?.duration || 3,
                   repeat: Infinity,
                   delay: i * 0.8,
                   ease: "easeInOut",
@@ -354,12 +378,12 @@ const NatureLoadingScreen = ({ onComplete }) => {
 
           {/* Subtle Binary Rain Effect */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {[...Array(12)].map((_, i) => (
+            {isClient && randomPositions.binaryRain && randomPositions.binaryRain.map((binary, i) => (
               <motion.div
                 key={`binary-${i}`}
                 className="absolute text-emerald-200 font-mono text-xs opacity-20"
                 style={{
-                  left: `${Math.random() * 100}%`,
+                  left: `${binary.left}%`,
                   top: '-10%',
                 }}
                 animate={{
@@ -367,13 +391,13 @@ const NatureLoadingScreen = ({ onComplete }) => {
                   opacity: [0, 0.3, 0],
                 }}
                 transition={{
-                  duration: 8 + Math.random() * 4,
+                  duration: binary.duration,
                   repeat: Infinity,
                   delay: i * 0.5,
                   ease: "linear",
                 }}
               >
-                {Math.random() > 0.5 ? '1' : '0'}
+                {binary.content}
               </motion.div>
             ))}
           </div>
